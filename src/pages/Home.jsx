@@ -51,7 +51,7 @@ import IndustriesSection from "../components/home/IndustriesSection";
 import CaseStudiesSection from "../components/home/CaseStudiesSection";
 import OfficesSection from "../components/home/OfficesSection";
 
-import ContactSection from "../components/home/ContactSection";
+// import ContactSection from "../components/home/ContactSection";
 
 
 
@@ -64,7 +64,7 @@ export default function Home() {
       <IndustriesSection />
       <CaseStudiesSection />
       <OfficesSection />
-      <ContactSection />
+      {/* <ContactSection /> */}
       
     </>
   );
