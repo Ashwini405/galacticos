@@ -261,10 +261,11 @@ export default function CaseStudiesSection() {
           text-align: center;
           font-size: 40px;
           font-weight: 800;
-          margin-bottom: 64px;
+          margin-bottom: 60px;
           color: #111827;
           position: relative;
           z-index: 2;
+          line-height: 1.2;
         }
 
         .case-title::after {
@@ -272,7 +273,7 @@ export default function CaseStudiesSection() {
           display: block;
           width: 56px;
           height: 3px;
-          margin: 14px auto 0;
+          margin: 12px auto 0;
           background: linear-gradient(90deg, #2563eb, #7c3aed);
         }
 
@@ -281,14 +282,14 @@ export default function CaseStudiesSection() {
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 36px;
+          gap: 32px;
           position: relative;
           z-index: 2;
         }
 
         .case-card {
           background: #ffffff;
-          border-radius: 6px;
+          border-radius: 12px;
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -318,7 +319,7 @@ export default function CaseStudiesSection() {
         }
 
         .case-img-container {
-          height: 210px;
+          height: 200px;
           overflow: hidden;
           position: relative;
           background: linear-gradient(145deg, #f9fafb, #f3f4f6);
@@ -349,41 +350,43 @@ export default function CaseStudiesSection() {
 
         .case-category {
           position: absolute;
-          top: 14px;
-          left: 14px;
+          top: 12px;
+          left: 12px;
           background: rgba(17,24,39,0.85);
           color: #ffffff;
-          padding: 6px 14px;
-          font-size: 12px;
+          padding: 5px 12px;
+          font-size: 11px;
           font-weight: 600;
           text-transform: uppercase;
           z-index: 3;
+          border-radius: 4px;
         }
 
         .case-content {
-          padding: 26px;
+          padding: 24px;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
         }
 
         .case-content h3 {
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 700;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
           color: #111827;
+          line-height: 1.3;
         }
 
         .case-content p {
-          font-size: 15px;
-          line-height: 1.65;
+          font-size: 14px;
+          line-height: 1.6;
           color: #4b5563;
-          margin-bottom: 18px;
+          margin-bottom: 14px;
           flex-grow: 1;
         }
 
         .case-link {
-          font-size: 15px;
+          font-size: 13px;
           font-weight: 600;
           color: #2563eb;
           text-decoration: none;
@@ -396,21 +399,166 @@ export default function CaseStudiesSection() {
           border-bottom-color: #2563eb;
         }
 
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+          .case-section {
+            padding: 70px 5%;
+          }
+          .case-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+          }
+          .case-grid {
+            gap: 28px;
+          }
+        }
+
         @media (max-width: 1100px) {
           .case-grid {
             grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          }
+          .case-title {
+            font-size: 32px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .case-section {
+            padding: 55px 4%;
+          }
+          .case-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+          }
+          .case-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .case-img-container {
+            height: 180px;
+          }
+          .case-content {
+            padding: 20px;
+          }
+          .case-content h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+          }
+          .case-content p {
+            font-size: 13px;
+            margin-bottom: 12px;
+          }
+          .case-link {
+            font-size: 12px;
           }
         }
 
         @media (max-width: 640px) {
-          .case-grid {
-            grid-template-columns: 1fr;
+          .case-section {
+            padding: 40px 3%;
           }
           .case-title {
-            font-size: 30px;
+            font-size: 24px;
+            margin-bottom: 30px;
+          }
+          .case-title::after {
+            width: 40px;
+            margin: 10px auto 0;
+          }
+          .case-grid {
+            gap: 16px;
+          }
+          .case-card {
+            border-radius: 10px;
           }
           .case-img-container {
-            height: 190px;
+            height: 160px;
+          }
+          .case-category {
+            top: 10px;
+            left: 10px;
+            padding: 4px 10px;
+            font-size: 10px;
+          }
+          .case-content {
+            padding: 16px;
+          }
+          .case-content h3 {
+            font-size: 14px;
+          }
+          .case-content p {
+            font-size: 12px;
+            line-height: 1.5;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .case-section {
+            padding: 30px 3%;
+          }
+          .case-title {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 700;
+          }
+          .case-grid {
+            gap: 12px;
+          }
+          .case-card {
+            border-radius: 8px;
+          }
+          .case-img-container {
+            height: 140px;
+          }
+          .case-content {
+            padding: 12px;
+          }
+          .case-content h3 {
+            font-size: 13px;
+            margin-bottom: 6px;
+          }
+          .case-content p {
+            font-size: 11px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+          }
+          .case-link {
+            font-size: 11px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .case-section {
+            padding: 25px 3%;
+          }
+          .case-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+          .case-grid {
+            gap: 10px;
+          }
+          .case-card {
+            border-radius: 6px;
+          }
+          .case-img-container {
+            height: 120px;
+          }
+          .case-content {
+            padding: 10px;
+          }
+          .case-content h3 {
+            font-size: 12px;
+            margin-bottom: 4px;
+          }
+          .case-content p {
+            font-size: 10px;
+            margin-bottom: 8px;
+            line-height: 1.3;
+          }
+          .case-link {
+            font-size: 10px;
           }
         }
       `}</style>

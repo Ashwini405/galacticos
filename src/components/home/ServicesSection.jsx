@@ -16,7 +16,7 @@ export default function ServicesSection() {
       <style>{`
         .services-section {
           position: relative;
-          padding: 100px 24px;
+          padding: 80px 6%;
           background:
             linear-gradient(
               rgba(0, 0, 0, 0.65),
@@ -25,15 +25,17 @@ export default function ServicesSection() {
             url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80");
           background-size: cover;
           background-position: center;
+          background-attachment: fixed;
           color: #fff;
         }
 
         .services-title {
           max-width: 1000px;
-          margin: 0 auto 70px;
+          margin: 0 auto 60px;
           text-align: center;
-          font-size: 44px;
+          font-size: 42px;
           font-weight: 800;
+          line-height: 1.2;
         }
 
         .services-grid {
@@ -41,7 +43,7 @@ export default function ServicesSection() {
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 28px;
+          gap: 24px;
           perspective: 1000px;
         }
 
@@ -67,7 +69,7 @@ export default function ServicesSection() {
           width: 100%;
           height: 100%;
           border-radius: 18px;
-          padding: 28px;
+          padding: 24px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -87,7 +89,7 @@ export default function ServicesSection() {
         }
 
         .service-icon {
-          font-size: 36px;
+          font-size: 32px;
           margin-bottom: 12px;
           animation: float 3s ease-in-out infinite;
         }
@@ -99,16 +101,17 @@ export default function ServicesSection() {
         }
 
         .flip-front h3 {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 700;
+          line-height: 1.3;
         }
 
         .flip-back ul {
           list-style: none;
           padding: 0;
           margin: 0;
-          font-size: 14px;
-          line-height: 1.8;
+          font-size: 13px;
+          line-height: 1.6;
         }
 
         .flip-back ul li::before {
@@ -125,18 +128,155 @@ export default function ServicesSection() {
         .card7 { background: linear-gradient(135deg, rgba(168,85,247,0.7), rgba(236,72,153,0.7)); }
         .card8 { background: linear-gradient(135deg, rgba(71,85,105,0.7), rgba(30,64,175,0.7)); }
 
-        @media (max-width: 1024px) {
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+          .services-section {
+            padding: 70px 5%;
+          }
+          .services-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+          }
           .services-grid {
-            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+          .flip-card {
+            height: 230px;
           }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 1024px) {
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+          }
+          .services-section {
+            padding: 60px 4%;
+          }
           .services-title {
-            font-size: 30px;
+            font-size: 32px;
+            margin-bottom: 40px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .services-section {
+            padding: 50px 4%;
+          }
+          .services-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+          }
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+          }
+          .flip-card {
+            height: 200px;
+          }
+          .flip-front, .flip-back {
+            padding: 16px;
+            border-radius: 12px;
+          }
+          .service-icon {
+            font-size: 26px;
+            margin-bottom: 8px;
+          }
+          .flip-front h3 {
+            font-size: 14px;
+          }
+          .flip-back ul {
+            font-size: 12px;
+            line-height: 1.4;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .services-section {
+            padding: 40px 3%;
+          }
+          .services-title {
+            font-size: 24px;
+            margin-bottom: 30px;
           }
           .services-grid {
             grid-template-columns: 1fr;
+            gap: 12px;
+          }
+          .flip-card {
+            height: 180px;
+          }
+          .flip-front, .flip-back {
+            padding: 14px;
+          }
+          .service-icon {
+            font-size: 24px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .services-section {
+            padding: 35px 3%;
+          }
+          .services-title {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 700;
+          }
+          .services-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+          .flip-card {
+            height: 160px;
+          }
+          .flip-front, .flip-back {
+            padding: 12px;
+            border-radius: 10px;
+          }
+          .service-icon {
+            font-size: 20px;
+            margin-bottom: 6px;
+          }
+          .flip-front h3 {
+            font-size: 13px;
+          }
+          .flip-back ul {
+            font-size: 11px;
+            line-height: 1.3;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .services-section {
+            padding: 30px 3%;
+          }
+          .services-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+          .services-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+          }
+          .flip-card {
+            height: 150px;
+          }
+          .flip-front, .flip-back {
+            padding: 10px;
+            border-radius: 8px;
+          }
+          .service-icon {
+            font-size: 18px;
+            margin-bottom: 4px;
+          }
+          .flip-front h3 {
+            font-size: 12px;
+            line-height: 1.2;
+          }
+          .flip-back ul {
+            font-size: 10px;
+            line-height: 1.2;
           }
         }
       `}</style>

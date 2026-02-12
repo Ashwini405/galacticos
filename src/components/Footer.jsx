@@ -25,11 +25,11 @@ export default function Footer() {
           position: relative;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 44px 24px;
+          padding: 40px 6%;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 56px;
-          align-items: center;
+          gap: 40px;
+          align-items: flex-start;
           z-index: 1;
         }
 
@@ -38,29 +38,30 @@ export default function Footer() {
           list-style: none;
           padding: 0;
           margin: 0;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 500;
         }
 
         .footer-links li,
         .footer-services li {
-          margin-bottom: 6px;
+          margin-bottom: 8px;
         }
 
         .footer-links a {
           color: #0056b3;
           text-decoration: none;
+          transition: opacity 0.2s ease;
         }
 
         .footer-links a:hover {
-          text-decoration: underline;
+          opacity: 0.7;
         }
 
         .footer-services h4 {
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 600;
           color: #0056b3;
-          margin-bottom: 10px;
+          margin-bottom: 12px;
           letter-spacing: 0.5px;
           text-transform: uppercase;
         }
@@ -75,7 +76,7 @@ export default function Footer() {
           position: relative;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 14px 24px;
+          padding: 20px 6%;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -88,27 +89,32 @@ export default function Footer() {
 
         .footer-legal {
           display: flex;
-          gap: 10px;
+          gap: 12px;
           align-items: center;
+          flex-wrap: wrap;
+          justify-content: center;
         }
 
         .footer-legal a {
           color: #6b7280;
           text-decoration: none;
+          transition: color 0.2s ease;
         }
 
         .footer-legal a:hover {
-          text-decoration: underline;
+          color: #0056b3;
         }
 
         .footer-social {
           display: flex;
-          gap: 14px;
+          gap: 16px;
+          align-items: center;
         }
 
         .footer-social a {
           color: #6b7280;
           transition: color 0.3s ease;
+          display: inline-flex;
         }
 
         .footer-social a:hover {
@@ -116,26 +122,91 @@ export default function Footer() {
         }
 
         .footer-social svg {
-          width: 16px;
-          height: 16px;
+          width: 18px;
+          height: 18px;
           fill: currentColor;
         }
 
         /* RESPONSIVE */
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
+          .footer-top {
+            padding: 36px 5%;
+            gap: 32px;
+          }
+          .footer-bottom {
+            padding: 18px 5%;
+            font-size: 12px;
+          }
+        }
+
+        @media (max-width: 768px) {
           .footer-top {
             grid-template-columns: 1fr;
+            padding: 28px 4%;
+            gap: 20px;
             text-align: center;
           }
 
           .footer-bottom {
             flex-direction: column;
+            padding: 16px 4%;
             text-align: center;
           }
 
           .footer-legal {
-            flex-wrap: wrap;
             justify-content: center;
+            gap: 8px;
+          }
+
+          .footer-social {
+            justify-content: center;
+            gap: 12px;
+          }
+
+          .footer-social svg {
+            width: 16px;
+            height: 16px;
+          }
+
+          .footer-links ul,
+          .footer-services ul {
+            font-size: 12px;
+          }
+
+          .footer-services h4 {
+            font-size: 12px;
+            margin-bottom: 10px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer-top {
+            padding: 20px 3%;
+            gap: 16px;
+          }
+
+          .footer-bottom {
+            padding: 12px 3%;
+            font-size: 11px;
+            gap: 8px;
+          }
+
+          .footer-legal {
+            gap: 6px;
+          }
+
+          .footer-links li,
+          .footer-services li {
+            margin-bottom: 6px;
+          }
+
+          .footer-social {
+            gap: 10px;
+          }
+
+          .footer-social svg {
+            width: 14px;
+            height: 14px;
           }
         }
       `}</style>

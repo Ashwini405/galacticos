@@ -310,6 +310,7 @@
 
 
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Cpu, Activity, Globe, Shield, Database } from "lucide-react";
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
@@ -575,6 +576,146 @@ export default function PremiumVanguardHero() {
           .h-text-col h1 { font-size: 3rem; }
           .h-nav-dots { left: 50%; transform: translateX(-50%); bottom: 100px; }
           .h-side-arrows { right: 50%; transform: translateX(50%); bottom: 30px; }
+        }
+
+        @media (max-width: 768px) {
+          .h-dashboard { 
+            width: 95vw; 
+            height: 90vh; 
+            padding: 40px 0;
+            border-radius: 24px;
+          }
+          .h-slide { 
+            padding: 40px 16px; 
+            gap: 20px;
+          }
+          .h-text-col h1 { 
+            font-size: 2rem; 
+            letter-spacing: -2px;
+          }
+          .h-text-col p {
+            font-size: 1rem !important;
+          }
+          .h-btn { 
+            padding: 14px 35px; 
+            font-size: 0.85rem;
+          }
+          .h-label {
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            gap: 6px;
+          }
+          .h-nav-dots { bottom: 80px; gap: 8px; }
+          .h-dot { width: 24px; height: 3px; }
+          .h-dot.active { width: 48px; }
+          .h-side-arrows { bottom: 20px; right: 20px; gap: 10px; }
+          .h-arrow-btn { width: 48px; height: 48px; }
+        }
+
+        @media (max-width: 640px) {
+          .h-dashboard { 
+            width: 96vw; 
+            height: auto;
+            min-height: 85vh;
+            padding: 35px 0;
+            border-radius: 20px;
+          }
+          .h-slide { 
+            padding: 35px 12px;
+            min-height: 100vh;
+          }
+          .h-text-col h1 { 
+            font-size: 1.6rem; 
+            line-height: 1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+          }
+          .h-text-col p {
+            font-size: 0.9rem !important;
+            margin-bottom: 30px;
+          }
+          .h-btn { 
+            padding: 12px 30px; 
+            font-size: 0.8rem;
+          }
+          .h-label {
+            font-size: 0.65rem;
+            margin-bottom: 16px;
+          }
+          .h-viz-col { height: 30%; }
+          .h-nav-dots { bottom: 70px; gap: 6px; }
+          .h-dot { width: 20px; height: 2px; }
+          .h-dot.active { width: 40px; }
+          .h-side-arrows { bottom: 15px; right: 15px; gap: 8px; }
+          .h-arrow-btn { width: 44px; height: 44px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 480px) {
+          .h-dashboard { 
+            width: 97vw; 
+            border-radius: 16px;
+            padding: 30px 0;
+          }
+          .h-slide { 
+            padding: 30px 10px;
+            flex-direction: column;
+          }
+          .h-text-col h1 { 
+            font-size: 1.3rem; 
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+          }
+          .h-text-col p {
+            font-size: 0.8rem !important;
+            margin-bottom: 24px;
+          }
+          .h-btn { 
+            padding: 10px 24px; 
+            font-size: 0.75rem;
+          }
+          .h-label {
+            font-size: 0.6rem;
+            margin-bottom: 12px;
+          }
+          .h-viz-col { height: 25%; margin-top: 15px; }
+          .h-nav-dots { bottom: 60px; gap: 4px; }
+          .h-dot { width: 16px; height: 2px; }
+          .h-dot.active { width: 32px; }
+          .h-side-arrows { bottom: 10px; right: 10px; gap: 6px; }
+          .h-arrow-btn { width: 40px; height: 40px; font-size: 0.8rem; }
+        }
+
+        @media (max-width: 360px) {
+          .h-dashboard { 
+            width: 98vw; 
+            border-radius: 14px;
+            padding: 25px 0;
+          }
+          .h-slide { 
+            padding: 25px 8px;
+          }
+          .h-text-col h1 { 
+            font-size: 1.1rem; 
+            margin-bottom: 10px;
+          }
+          .h-text-col p {
+            font-size: 0.75rem !important;
+            margin-bottom: 20px;
+          }
+          .h-btn { 
+            padding: 9px 20px; 
+            font-size: 0.7rem;
+          }
+          .h-label {
+            font-size: 0.55rem;
+            margin-bottom: 10px;
+          }
+          .h-viz-col { height: 20%; margin-top: 12px; }
+          .h-nav-dots { bottom: 50px; gap: 3px; }
+          .h-dot { width: 14px; height: 1.5px; }
+          .h-dot.active { width: 28px; }
+          .h-side-arrows { bottom: 8px; right: 8px; gap: 4px; }
+          .h-arrow-btn { width: 36px; height: 36px; font-size: 0.7rem; }
         }
       `}</style>
 

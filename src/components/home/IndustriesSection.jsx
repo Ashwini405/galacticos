@@ -4,7 +4,7 @@ export default function IndustriesSection() {
       <style>{`
         .engage-section {
           position: relative;
-          padding: 80px 24px;
+          padding: 70px 6%;
           overflow: hidden;
           text-align: center;
           background:
@@ -22,6 +22,7 @@ export default function IndustriesSection() {
           background: linear-gradient(135deg, #312e81, #6d28d9);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          line-height: 1.2;
         }
 
         .engage-subtitle {
@@ -35,7 +36,7 @@ export default function IndustriesSection() {
         .engage-subtext {
           font-size: 14px;
           color: #64748b;
-          margin-bottom: 56px;
+          margin-bottom: 50px;
           font-style: italic;
         }
 
@@ -44,13 +45,13 @@ export default function IndustriesSection() {
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 36px;
+          gap: 28px;
         }
 
         /* CARD */
         .engage-card {
           height: 300px;
-          border-radius: 28px;
+          border-radius: 24px;
           position: relative;
           overflow: hidden;
           box-shadow: 0 30px 60px rgba(0,0,0,0.15);
@@ -59,7 +60,7 @@ export default function IndustriesSection() {
         }
 
         .engage-card:hover {
-          transform: translateY(-14px);
+          transform: translateY(-12px);
           box-shadow: 0 45px 90px rgba(0,0,0,0.22);
         }
 
@@ -85,30 +86,31 @@ export default function IndustriesSection() {
         /* TITLE (always visible) */
         .card-title {
           position: absolute;
-          bottom: 24px;
-          left: 24px;
-          right: 24px;
-          font-size: 22px;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
+          font-size: 20px;
           font-weight: 800;
           color: #ffffff;
           z-index: 2;
           text-align: left;
           text-shadow: 0 4px 12px rgba(0,0,0,0.45);
           transition: transform 0.4s ease;
+          line-height: 1.2;
         }
 
         .engage-card:hover .card-title {
-          transform: translateY(-60px);
+          transform: translateY(-50px);
         }
 
         /* DESCRIPTION (hover only) */
         .card-description {
           position: absolute;
-          bottom: 24px;
-          left: 24px;
-          right: 24px;
-          font-size: 14px;
-          line-height: 1.6;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
+          font-size: 13px;
+          line-height: 1.5;
           color: #ffffff;
           opacity: 0;
           transform: translateY(20px);
@@ -136,19 +138,230 @@ export default function IndustriesSection() {
           z-index: 1;
         }
 
-        @media (max-width: 900px) {
-          .engage-grid {
-            grid-template-columns: 1fr;
-            max-width: 460px;
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+          .engage-section {
+            padding: 60px 5%;
           }
-          .engage-card {
-            height: 260px;
+          .engage-title {
+            font-size: 32px;
+          }
+          .engage-grid {
+            gap: 24px;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .engage-section {
+            padding: 55px 5%;
           }
           .engage-title {
             font-size: 30px;
           }
+          .engage-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+          .engage-card {
+            height: 280px;
+          }
+          .card-title {
+            font-size: 18px;
+          }
+          .card-description {
+            font-size: 12px;
+          }
+        }
+
+        @media (max-width: 768px) {
           .engage-section {
-            padding: 60px 24px;
+            padding: 45px 4%;
+          }
+          .engage-title {
+            font-size: 26px;
+            margin-bottom: 8px;
+          }
+          .engage-subtitle {
+            font-size: 15px;
+            line-height: 1.4;
+          }
+          .engage-subtext {
+            font-size: 13px;
+            margin-bottom: 35px;
+            line-height: 1.5;
+          }
+          .engage-grid {
+            grid-template-columns: 1fr;
+            max-width: 100%;
+            gap: 16px;
+          }
+          .engage-card {
+            height: 240px;
+            border-radius: 16px;
+            min-height: 280px;
+          }
+          .card-title {
+            font-size: 16px;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            margin-bottom: 8px;
+          }
+          .card-description {
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            font-size: 12px;
+            line-height: 1.4;
+          }
+          .engage-card:hover .card-title {
+            transform: translateY(-45px);
+          }
+          .engage-card:hover .card-description {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .engage-section {
+            padding: 40px 4%;
+          }
+          .engage-title {
+            font-size: 24px;
+            margin-bottom: 12px;
+          }
+          .engage-subtitle {
+            font-size: 14px;
+            margin-bottom: 6px;
+          }
+          .engage-subtext {
+            font-size: 12px;
+            margin-bottom: 30px;
+          }
+          .engage-grid {
+            gap: 14px;
+          }
+          .engage-card {
+            height: auto;
+            min-height: 260px;
+            aspect-ratio: auto;
+            padding: 16px;
+          }
+          .card-animation {
+            height: 150px;
+            min-height: 120px;
+          }
+          .card-title {
+            position: static;
+            font-size: 15px;
+            margin-top: 12px;
+            text-shadow: none;
+            transform: none !important;
+            z-index: 3;
+          }
+          .card-description {
+            position: static;
+            opacity: 1 !important;
+            transform: none !important;
+            font-size: 12px;
+            margin-top: 8px;
+            text-shadow: none;
+            z-index: 3;
+          }
+          .card-overlay {
+            opacity: 0.6;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .engage-section {
+            padding: 35px 4%;
+          }
+          .engage-title {
+            font-size: 22px;
+            margin-bottom: 8px;
+            line-height: 1.3;
+          }
+          .engage-subtitle {
+            font-size: 13px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+          }
+          .engage-subtext {
+            font-size: 11px;
+            margin-bottom: 25px;
+            line-height: 1.4;
+          }
+          .engage-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+          .engage-card {
+            height: auto;
+            min-height: 240px;
+            padding: 12px;
+            border-radius: 12px;
+          }
+          .card-animation {
+            height: 130px;
+            min-height: 100px;
+          }
+          .card-animation svg {
+            object-fit: cover;
+          }
+          .card-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            display: block;
+          }
+          .card-description {
+            font-size: 11px;
+            line-height: 1.35;
+            display: block;
+            margin-top: 4px;
+          }
+          .engage-card:hover {
+            transform: none;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .engage-section {
+            padding: 30px 3%;
+          }
+          .engage-title {
+            font-size: 20px;
+            margin-bottom: 6px;
+          }
+          .engage-subtitle {
+            font-size: 12px;
+            margin-bottom: 3px;
+          }
+          .engage-subtext {
+            font-size: 10px;
+            margin-bottom: 20px;
+          }
+          .engage-grid {
+            gap: 10px;
+          }
+          .engage-card {
+            min-height: 220px;
+            padding: 10px;
+          }
+          .card-animation {
+            height: 110px;
+          }
+          .card-title {
+            font-size: 12px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+          }
+          .card-description {
+            font-size: 10px;
+            line-height: 1.3;
           }
         }
       `}</style>

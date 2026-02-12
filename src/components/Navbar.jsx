@@ -253,8 +253,11 @@
 
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  
   return (
     <>
       <style>{`
@@ -273,7 +276,7 @@ export default function Navbar() {
           position: sticky;
           top: 0;
           z-index: 1000;
-          height: 76px;
+          min-height: 60px;
           background: var(--glass-bg);
           backdrop-filter: blur(18px) saturate(160%);
           -webkit-backdrop-filter: blur(18px) saturate(160%);
@@ -290,7 +293,7 @@ export default function Navbar() {
           width: 100%;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 2rem;
+          padding: 0 4%;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -301,28 +304,30 @@ export default function Navbar() {
         .logo-link {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 8px;
           text-decoration: none;
+          flex-shrink: 0;
         }
 
         .logo-img {
-          width: 42px;
-          height: 42px;
+          width: 36px;
+          height: 36px;
           object-fit: contain;
-          border-radius: 10px;
+          border-radius: 8px;
           background: rgba(255,255,255,0.6);
-          padding: 6px;
+          padding: 4px;
           box-shadow:
             0 6px 20px rgba(0,0,0,0.08),
             inset 0 0 0 1px rgba(255,255,255,0.6);
         }
 
         .logo-text {
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           font-weight: 800;
           letter-spacing: -0.03em;
           color: var(--text-main);
           line-height: 1;
+          white-space: nowrap;
         }
 
         .logo-text span {
@@ -340,17 +345,18 @@ export default function Navbar() {
         .nav-menu {
           display: flex;
           align-items: center;
-          gap: 1.6rem;
+          gap: 1.2rem;
         }
 
         .nav-link {
           position: relative;
           text-decoration: none;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           font-weight: 600;
           color: var(--text-muted);
           padding: 0.5rem 0;
           transition: color 0.25s ease;
+          white-space: nowrap;
         }
 
         .nav-link:hover {
@@ -364,13 +370,8 @@ export default function Navbar() {
           bottom: -6px;
           width: 0;
           height: 2px;
-          background: linear-gradient(
-            to right,
-            var(--brand-primary),
-            var(--brand-secondary)
-          );
+          background: var(--brand-primary);
           transition: width 0.3s ease;
-          border-radius: 2px;
         }
 
         .nav-link:hover::after {
@@ -381,21 +382,22 @@ export default function Navbar() {
 
         .dropdown {
           position: relative;
-          padding: 1.2rem 0;
+          padding: 1rem 0;
         }
 
         .dropdown-trigger {
           cursor: pointer;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           font-weight: 600;
           color: var(--text-muted);
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 4px;
+          white-space: nowrap;
         }
 
         .arrow {
-          font-size: 0.65rem;
+          font-size: 0.6rem;
           transition: transform 0.35s ease;
           opacity: 0.7;
         }
@@ -410,55 +412,53 @@ export default function Navbar() {
           top: 100%;
           left: 0;
           width: 100%;
-          height: 18px;
+          height: 12px;
         }
 
         .dropdown-menu {
           position: absolute;
-          top: calc(100% + 12px);
-          left: 50%;
-          transform: translateX(-50%) translateY(12px);
-          min-width: 260px;
-          background: rgba(255, 255, 255, 0.92);
+          top: calc(100% + 8px);
+          left: -20px;
+          min-width: 240px;
+          background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(16px);
-          border-radius: 14px;
-          padding: 0.6rem;
+          border-radius: 12px;
+          padding: 0.5rem;
           box-shadow:
-            0 30px 60px rgba(15, 23, 42, 0.15),
+            0 25px 50px rgba(15, 23, 42, 0.12),
             inset 0 0 0 1px rgba(255,255,255,0.5);
           opacity: 0;
           visibility: hidden;
-          transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+          transition: all 0.3s ease;
           z-index: 999;
         }
 
         .dropdown:hover .dropdown-menu {
           opacity: 1;
           visibility: visible;
-          transform: translateX(-50%) translateY(0);
         }
 
         .dropdown-menu a {
           display: block;
-          padding: 0.75rem 1rem;
-          border-radius: 10px;
+          padding: 0.6rem 0.8rem;
+          border-radius: 8px;
           text-decoration: none;
-          font-size: 0.875rem;
+          font-size: 0.8rem;
           font-weight: 500;
           color: var(--text-muted);
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
         }
 
         .dropdown-menu a:hover {
           background: rgba(99,102,241,0.08);
           color: var(--brand-primary);
-          transform: translateX(6px);
+          transform: translateX(4px);
         }
 
         /* ================= CTA BUTTON ================= */
 
         .contact-btn {
-          padding: 0.6rem 1.5rem;
+          padding: 0.5rem 1.2rem;
           border-radius: 999px;
           background: linear-gradient(
             135deg,
@@ -467,8 +467,9 @@ export default function Navbar() {
           );
           color: #fff !important;
           font-weight: 700;
-          box-shadow:
-            0 10px 25px rgba(99,102,241,0.35);
+          font-size: 0.8rem;
+          box-shadow: 0 8px 20px rgba(99,102,241,0.3);
+          white-space: nowrap;
         }
 
         .contact-btn::after {
@@ -477,8 +478,139 @@ export default function Navbar() {
 
         .contact-btn:hover {
           transform: translateY(-1px);
-          box-shadow:
-            0 14px 30px rgba(99,102,241,0.45);
+          box-shadow: 0 12px 25px rgba(99,102,241,0.4);
+        }
+
+        /* ================= HAMBURGER MENU ================= */
+
+        .hamburger {
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          cursor: pointer;
+          background: transparent;
+          border: none;
+          padding: 8px;
+          z-index: 1001;
+        }
+
+        .hamburger line {
+          width: 24px;
+          height: 2.5px;
+          background: var(--text-main);
+          border-radius: 2px;
+          transition: all 0.3s ease;
+        }
+
+        .hamburger.open line:nth-child(1) {
+          transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.open line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.open line:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ================= MOBILE MENU ================= */
+
+        .mobile-menu {
+          position: fixed;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          max-height: calc(100vh - 60px);
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+          display: none;
+          flex-direction: column;
+          padding: 20px 4%;
+          gap: 10px;
+          overflow-y: auto;
+          z-index: 999;
+        }
+
+        .mobile-menu.open {
+          display: flex;
+        }
+
+        .mobile-menu a, .mobile-menu .dropdown-trigger {
+          padding: 12px 0;
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          text-decoration: none;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+          cursor: pointer;
+        }
+
+        .mobile-menu a:hover, .mobile-menu .dropdown-trigger:hover {
+          color: var(--brand-primary);
+        }
+
+        .mobile-dropdown-menu {
+          display: none;
+          flex-direction: column;
+          gap: 8px;
+          padding: 12px 16px;
+          background: rgba(99,102,241,0.05);
+          border-radius: 8px;
+          margin-top: 8px;
+        }
+
+        .mobile-dropdown-menu.open {
+          display: flex;
+        }
+
+        .mobile-dropdown-menu a {
+          border: none;
+          padding: 8px 0;
+          font-size: 0.9rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1024px) {
+          .logo-text {
+            font-size: 1rem;
+          }
+          .nav-menu {
+            gap: 1rem;
+          }
+          .nav-link, .dropdown-trigger {
+            font-size: 0.8rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .nav-container {
+            padding: 0 3%;
+          }
+          
+          .nav-menu {
+            display: none;
+          }
+
+          .hamburger {
+            display: flex;
+          }
+
+          .logo-img {
+            width: 32px;
+            height: 32px;
+          }
+
+          .logo-text {
+            font-size: 1rem;
+            max-width: calc(100vw - 120px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .dropdown-menu {
+            display: none !important;
+          }
         }
       `}</style>
 
@@ -486,7 +618,7 @@ export default function Navbar() {
         <div className="nav-container">
           
           {/* LOGO */}
-          <Link to="/" className="logo-link">
+          <Link to="/" className="logo-link" onClick={() => setMenuOpen(false)}>
             <img
               src="/brand-logo.png"
               alt="Galacticos Network"
@@ -496,6 +628,17 @@ export default function Navbar() {
               GALACTICOS <span>NETWORK</span>
             </div>
           </Link>
+
+          {/* HAMBURGER */}
+          <button 
+            className={`hamburger ${menuOpen ? 'open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <line></line>
+            <line></line>
+            <line></line>
+          </button>
 
           {/* NAV */}
           <nav className="nav-menu">
@@ -523,6 +666,38 @@ export default function Navbar() {
             <Link className="nav-link" to="/careers">CAREERS</Link>
             <Link className="nav-link contact-btn" to="/contact">CONTACT US</Link>
           </nav>
+        </div>
+
+        {/* MOBILE MENU */}
+        <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+          <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>HOME</Link>
+          <Link to="/about-us" className="nav-link" onClick={() => setMenuOpen(false)}>ABOUT US</Link>
+          
+          <div className="dropdown">
+            <div 
+              className="dropdown-trigger"
+              onClick={() => {
+                const el = document.querySelector('.mobile-dropdown-menu');
+                el?.classList.toggle('open');
+              }}
+            >
+              SERVICES <span className="arrow">▼</span>
+            </div>
+            <div className="mobile-dropdown-menu">
+              <Link to="/services/application-engineering" onClick={() => setMenuOpen(false)}>Application Engineering</Link>
+              <Link to="/services/cloud" onClick={() => setMenuOpen(false)}>Cloud Solutions</Link>
+              <Link to="/services/devops" onClick={() => setMenuOpen(false)}>DevOps & Automation</Link>
+              <Link to="/services/data-engineering" onClick={() => setMenuOpen(false)}>Data Engineering</Link>
+              <Link to="/services/cloud-saas" onClick={() => setMenuOpen(false)}>Cloud SaaS</Link>
+              <Link to="/services/quality-engineering" onClick={() => setMenuOpen(false)}>Quality Engineering</Link>
+              <Link to="/services/ui-ux" onClick={() => setMenuOpen(false)}>UX / UI Design</Link>
+              <Link to="/services/mobility" onClick={() => setMenuOpen(false)}>Mobility</Link>
+            </div>
+          </div>
+
+          <Link to="/investors" className="nav-link" onClick={() => setMenuOpen(false)}>INVESTORS</Link>
+          <Link to="/careers" className="nav-link" onClick={() => setMenuOpen(false)}>CAREERS</Link>
+          <Link to="/contact" className="contact-btn" style={{textAlign: 'center', marginTop: '10px'}} onClick={() => setMenuOpen(false)}>CONTACT US</Link>
         </div>
       </header>
     </>
